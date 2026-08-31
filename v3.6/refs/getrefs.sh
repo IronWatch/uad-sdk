@@ -41,3 +41,7 @@ for file in "${REFERENCES[@]}"; do
     --content-disposition \
     "${file}";
 done
+
+for f in *\ *; do mv -n "$f" "${f// /_}"; done
+for f in *.zip; do unzip "$f" -d "${f%.zip}"; done
+rm -f *.zip;
